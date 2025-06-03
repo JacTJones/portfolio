@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scroll Snap Demo</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navigation">
+        <ul>
+            <li><a href="#page1" class="nav-link">Page 1</a></li>
+            <li><a href="#page2" class="nav-link">Page 2</a></li>
+            <li><a href="#page3" class="nav-link">Page 3</a></li>
+            <li><a href="#page4" class="nav-link">Page 4</a></li>
+            <li><a href="https://github.com/JacTJones" target="_blank"><i class="fab fa-github"></i></a></li>
+            <li><a href="https://www.linkedin.com/in/jac-jones/" target="_blank"><i class="fab fa-linkedin"></i></a></li>
+        </ul>
+    </nav>
+
+    <button class="nav-button top-button" id="scrollUp">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+            <path fill="currentColor" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"/>
+        </svg>
+    </button>
+
+    <div class="container">
+        <section class="page" id="page1">
+            <h1>Page 1</h1>
+            <p>Content</p>
+        </section>
+        
+        <section class="page" id="page2">
+            <h1>Page 2</h1>
+            <p>Content</p>
+        </section>
+        
+        <section class="page" id="page3">
+            <h1>Page 3</h1>
+            <p>Content</p>
+        </section>
+        
+        <section class="page" id="page4">
+            <h1>Page 4</h1>
+            <p>Content</p>
+        </section>
+    </div>
+
+    <button class="nav-button bottom-button" id="scrollDown">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+            <path fill="currentColor" d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6z"/>
+        </svg>
+    </button>
+
+    <script src="script.js"></script>
+</body>
+</html> 
