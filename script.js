@@ -131,3 +131,56 @@ document.addEventListener('DOMContentLoaded', () => {
     // Call the initial hash handler
     handleInitialHash();
 });
+
+
+
+// Mimic Typing
+const txt = [
+    'Full Stack Web',
+    'Java',
+    'Python',
+    'JavaScript',
+    'Node.js',
+    'SQL',
+];
+
+
+let i = 0, j = 0;
+let end = false;
+
+function wait(seconds) {
+    return new Promise((resolve) => setTimeout(resolve, seconds * 1000));
+}
+
+async function mimicTyping() {
+    if (i < txt.length) {
+        if (end == false && j <= txt[i].length) {
+            document.getElementById("typed").innerHTML += txt[i][j];
+            j++;
+        }
+        
+        // This is for backspacing the characters one by one
+        if (end == true && j <= txt[i].length) {
+            document.getElementById("typed").innerHTML = txt[i].substring(0, j - 1);
+            j--;
+        }
+        
+        // This is for checking if all the characters have been typed
+        if (j == txt[i].length) {
+            end = true;
+            await wait(1.5);
+        }
+        
+        // This is for going to the next word
+        if (end == true && j == 0) {
+            i++;
+            end = false;
+        }
+    } else {
+        i = 0;
+    }
+    setTimeout(mimicTyping, 100);
+}
+
+// Start the animation
+mimicTyping();

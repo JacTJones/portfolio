@@ -3,17 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Scroll Snap Demo</title>
+    <title>Jac Jones</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
     <nav class="navigation">
         <ul>
-            <li><a href="#page1" class="nav-link">Page 1</a></li>
-            <li><a href="#page2" class="nav-link">Page 2</a></li>
-            <li><a href="#page3" class="nav-link">Page 3</a></li>
-            <li><a href="#page4" class="nav-link">Page 4</a></li>
+            <li><a href="#about" class="nav-link">About</a></li>
+            <li><a href="#skills" class="nav-link">Skills</a></li>
+            <li><a href="#experience" class="nav-link">Experience</a></li>
+            <li><a href="#projects" class="nav-link">Projects</a></li>
+            <li><a href="#contact" class="nav-link">Contact</a></li>
             <li><a href="https://github.com/JacTJones" target="_blank"><i class="fab fa-github"></i></a></li>
             <li><a href="https://www.linkedin.com/in/jac-jones/" target="_blank"><i class="fab fa-linkedin"></i></a></li>
         </ul>
@@ -26,24 +27,68 @@
     </button>
 
     <div class="container">
-        <section class="page" id="page1">
-            <h1>Page 1</h1>
+        <section class="page" id="about">
+            <h1>Hi! I'm <span class="highlighted">Jac Jones</span>.</h1>
+            <h2><span id="typed" class="highlighted"></span> Developer</h2>
+            <p style="margin-top: 1rem;">I'm a passionate developer with expertise in full-stack web development. I love creating applications that solve real-world problems.</p>
+        </section>
+        
+        <section class="page" id="skills">
+            <h1>Skills</h1>
+            <div class="skills-container">
+                <div class="skill-category">
+                    <h3>Frontend</h3>
+                    <div class="skill-chips">
+                        <span class="skill-chip">HTML</span>
+                        <span class="skill-chip">CSS</span>
+                        <span class="skill-chip">SCSS</span>
+                        <span class="skill-chip">JavaScript / TypeScript</span>
+                        <span class="skill-chip">Vue.JS</span>
+                        <span class="skill-chip">Bootstrap</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3>Backend</h3>
+                    <div class="skill-chips">
+                        <span class="skill-chip">Node.js</span>
+                        <span class="skill-chip">Python</span>
+                        <span class="skill-chip">Java</span>
+                        <span class="skill-chip">C</span>
+                        <span class="skill-chip">C++</span>
+                        <span class="skill-chip">Spring boot</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3>Tools & Others</h3>
+                    <div class="skill-chips">
+                        <span class="skill-chip">SQL</span>
+                        <span class="skill-chip">Git</span>
+                        <span class="skill-chip">Docker</span>
+                        <span class="skill-chip">Azure</span>
+                        <span class="skill-chip">Jenkins (CI/CD)</span>
+                        <span class="skill-chip">WebSockets</span>
+                        <span class="skill-chip">REST APIs</span>
+                        <span class="skill-chip">Agile</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="page" id="experience">
+            <h1>Experience</h1>
             <p>Content</p>
         </section>
         
-        <section class="page" id="page2">
-            <h1>Page 2</h1>
+        <section class="page" id="projects">
+            <h1>Projects</h1>
             <p>Content</p>
         </section>
-        
-        <section class="page" id="page3">
-            <h1>Page 3</h1>
-            <p>Content</p>
-        </section>
-        
-        <section class="page" id="page4">
-            <h1>Page 4</h1>
-            <p>Content</p>
+
+        <section class="page" id="contact">
+            <h1>Contact</h1>
+            <p>Use https://formsubmit.co/ for serverless implementation of form</p>
         </section>
     </div>
 
