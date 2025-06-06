@@ -748,15 +748,7 @@ p {
         z-index: 1001;
         cursor: pointer;
         padding: 10px;
-    }
-
-    .burger-menu span {
-        display: block;
-        width: 25px;
-        height: 3px;
-        background-color: #64ffda;
-        margin: 5px 0;
-        transition: all 0.3s ease;
+        color: #8892b0;
     }
 
     .mobile-nav {
@@ -854,19 +846,6 @@ p {
     #contact form {
         padding: 0 1rem;
     }
-}
-
-/* Burger Menu Animation */
-.burger-menu.active span:nth-child(1) {
-    transform: rotate(45deg) translate(5px, 5px);
-}
-
-.burger-menu.active span:nth-child(2) {
-    opacity: 0;
-}
-
-.burger-menu.active span:nth-child(3) {
-    transform: rotate(-45deg) translate(7px, -6px);
 }
 
 @media screen and (max-width: 480px) {

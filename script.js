@@ -220,7 +220,7 @@ const txt = [
     'Full Stack Web',
     'Java',
     'Python',
-    'JavaScript',
+    'TypeScript',
     'Node.js',
     'SQL',
 ];
