@@ -13,6 +13,22 @@ body {
     line-height: 1.6;
     color: #e6f1ff;
     background-color: #0a192f;
+    position: relative;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        radial-gradient(circle at 0% 0%, #64ffda 0%, transparent 25%),
+        radial-gradient(circle at 100% 100%, #64ffda 0%, transparent 25%);
+    opacity: 0.1;
+    pointer-events: none;
+    z-index: 0;
 }
 
 .container {
@@ -21,6 +37,8 @@ body {
     scroll-snap-type: y mandatory;
     -ms-overflow-style: none;  /* IE and Edge */
     scrollbar-width: none;  /* Firefox */
+    position: relative;
+    z-index: 1;
 }
 
 .container::-webkit-scrollbar {
@@ -36,6 +54,103 @@ body {
     align-items: center;
     text-align: center;
     padding: 2rem;
+    position: relative;
+}
+
+.page::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        radial-gradient(circle at 0% 0%, #64ffda 0%, transparent 25%),
+        radial-gradient(circle at 100% 100%, #64ffda 0%, transparent 25%);
+    opacity: 0.1;
+    pointer-events: none;
+    z-index: 0;
+}
+
+#about::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        radial-gradient(circle at 20% 15%, #64ffda 0%, transparent 35%),
+        radial-gradient(circle at 85% 75%, #64ffda 0%, transparent 40%),
+        radial-gradient(circle at 45% 60%, #64ffda 0%, transparent 25%);
+    opacity: 0.1;
+    pointer-events: none;
+    z-index: 0;
+}
+
+#skills::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        radial-gradient(circle at 75% 25%, #64ffda 0%, transparent 30%),
+        radial-gradient(circle at 15% 85%, #64ffda 0%, transparent 35%),
+        radial-gradient(circle at 60% 40%, #64ffda 0%, transparent 20%);
+    opacity: 0.1;
+    pointer-events: none;
+    z-index: 0;
+}
+
+#experience::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        radial-gradient(circle at 35% 10%, #64ffda 0%, transparent 45%),
+        radial-gradient(circle at 65% 90%, #64ffda 0%, transparent 40%),
+        radial-gradient(circle at 90% 30%, #64ffda 0%, transparent 25%);
+    opacity: 0.1;
+    pointer-events: none;
+    z-index: 0;
+}
+
+#projects::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        radial-gradient(circle at 10% 35%, #64ffda 0%, transparent 35%),
+        radial-gradient(circle at 80% 65%, #64ffda 0%, transparent 30%),
+        radial-gradient(circle at 50% 50%, #64ffda 0%, transparent 20%);
+    opacity: 0.1;
+    pointer-events: none;
+    z-index: 0;
+}
+
+#contact::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        radial-gradient(circle at 25% 25%, #64ffda 0%, transparent 40%),
+        radial-gradient(circle at 75% 75%, #64ffda 0%, transparent 35%),
+        radial-gradient(circle at 40% 80%, #64ffda 0%, transparent 30%),
+        radial-gradient(circle at 85% 15%, #64ffda 0%, transparent 25%);
+    opacity: 0.1;
+    pointer-events: none;
+    z-index: 0;
 }
 
 #about {
@@ -532,6 +647,25 @@ p {
     border: 1px solid #64ffda;
     transition: all 0.3s ease;
     cursor: pointer;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.dot-label {
+    position: absolute;
+    right: 25px;
+    color: #8892b0;
+    font-size: 0.9rem;
+    opacity: 0.5;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+.nav-dot:hover .dot-label,
+.nav-dot.active .dot-label {
+    opacity: 1;
+    color: #64ffda;
 }
 
 .nav-dot:hover {
