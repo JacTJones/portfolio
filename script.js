@@ -1,15 +1,75 @@
 // Add a small delay to ensure the DOM is fully loaded
 document.addEventListener('DOMContentLoaded', () => {
+    // Burger menu functionality
+    const burgerMenu = document.querySelector('.burger-menu');
+    const mobileNav = document.querySelector('.mobile-nav');
+    const mobileNavLinks = document.querySelectorAll('.mobile-nav a');
+    const scrollUp = document.getElementById('scrollUp');
+    const scrollDown = document.getElementById('scrollDown');
+
+    burgerMenu.addEventListener('click', () => {
+        burgerMenu.classList.toggle('active');
+        mobileNav.classList.toggle('active');
+        
+        // Hide/show navigation arrows when burger menu is toggled
+        if (mobileNav.classList.contains('active')) {
+            scrollUp.style.display = 'none';
+            scrollDown.style.display = 'none';
+        } else {
+            // Restore arrows based on current page
+            const currentPage = Array.from(pages).find(page => {
+                const rect = page.getBoundingClientRect();
+                return rect.top >= 0 && rect.top <= window.innerHeight / 2;
+            });
+            if (currentPage) {
+                const currentIndex = Array.from(pages).indexOf(currentPage);
+                scrollUp.style.display = currentIndex > 0 ? 'flex' : 'none';
+                scrollDown.style.display = currentIndex < pages.length - 1 ? 'flex' : 'none';
+            }
+        }
+    });
+
+    mobileNavLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            const targetId = link.getAttribute('href').substring(1);
+            const targetPage = document.getElementById(targetId);
+            targetPage.scrollIntoView({ behavior: 'smooth' });
+            
+            burgerMenu.classList.remove('active');
+            mobileNav.classList.remove('active');
+            
+            // Restore arrows when menu is closed
+            const currentPage = Array.from(pages).find(page => {
+                const rect = page.getBoundingClientRect();
+                return rect.top >= 0 && rect.top <= window.innerHeight / 2;
+            });
+            if (currentPage) {
+                const currentIndex = Array.from(pages).indexOf(currentPage);
+                scrollUp.style.display = currentIndex > 0 ? 'flex' : 'none';
+                scrollDown.style.display = currentIndex < pages.length - 1 ? 'flex' : 'none';
+            }
+        });
+    });
+
     // Get all pages and navigation links
     const pages = document.querySelectorAll('.page');
     const navLinks = document.querySelectorAll('.nav-link');
     const navDots = document.querySelectorAll('.nav-dot');
-    const scrollUp = document.getElementById('scrollUp');
-    const scrollDown = document.getElementById('scrollDown');
     
     // Function to update active navigation link
     const updateActiveLink = (pageId) => {
+        // Update desktop navigation
         navLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === `#${pageId}`) {
+                link.classList.add('active');
+            }
+        });
+
+        // Update mobile navigation
+        const mobileLinks = document.querySelectorAll('.mobile-nav a');
+        mobileLinks.forEach(link => {
             link.classList.remove('active');
             if (link.getAttribute('href') === `#${pageId}`) {
                 link.classList.add('active');
