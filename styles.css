@@ -649,18 +649,22 @@ p {
     transform: translateY(-50%);
     color: #8892b0;
     font-size: 0.9rem;
-    opacity: 1;
+    opacity: 0;
     transition: all 0.3s ease;
     white-space: nowrap;
     pointer-events: auto;
     cursor: pointer;
-    z-index: 1;
+}
+
+.nav-dots:hover .dot-label,
+.dot-label:hover {
+    opacity: 1;
+    left: 2.5rem;
 }
 
 .nav-dot:hover .dot-label,
-.nav-dot .dot-label:hover {
+.dot-label:hover {
     color: #64ffda;
-    left: 2.5rem;
 }
 
 .nav-dot.active .dot-label {
@@ -794,19 +798,6 @@ p {
     .mobile-nav a.active {
         color: #64ffda;
         font-weight: 600;
-    }
-
-    .mobile-nav a.active::before {
-        content: '';
-        position: absolute;
-        left: -15px;
-        top: 50%;
-        transform: translateY(-50%);
-        width: 4px;
-        height: 4px;
-        background-color: #64ffda;
-        border-radius: 50%;
-        box-shadow: 0 0 10px rgba(100, 255, 218, 0.5);
     }
 
     .social-links {
