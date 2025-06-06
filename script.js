@@ -3,6 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Get all pages and navigation links
     const pages = document.querySelectorAll('.page');
     const navLinks = document.querySelectorAll('.nav-link');
+    const navDots = document.querySelectorAll('.nav-dot');
     const scrollUp = document.getElementById('scrollUp');
     const scrollDown = document.getElementById('scrollDown');
     
@@ -12,6 +13,14 @@ document.addEventListener('DOMContentLoaded', () => {
             link.classList.remove('active');
             if (link.getAttribute('href') === `#${pageId}`) {
                 link.classList.add('active');
+            }
+        });
+
+        // Update active dot
+        navDots.forEach(dot => {
+            dot.classList.remove('active');
+            if (dot.getAttribute('data-section') === pageId) {
+                dot.classList.add('active');
             }
         });
     };
@@ -65,6 +74,18 @@ document.addEventListener('DOMContentLoaded', () => {
         link.addEventListener('click', (e) => {
             e.preventDefault();
             const targetId = link.getAttribute('href').substring(1);
+            const targetPage = document.getElementById(targetId);
+            targetPage.scrollIntoView({ behavior: 'smooth' });
+            updateActiveLink(targetId);
+            updateNavigationButtons(targetPage);
+        });
+    });
+
+    // Handle dot navigation clicks
+    navDots.forEach(dot => {
+        dot.addEventListener('click', (e) => {
+            e.preventDefault();
+            const targetId = dot.getAttribute('data-section');
             const targetPage = document.getElementById(targetId);
             targetPage.scrollIntoView({ behavior: 'smooth' });
             updateActiveLink(targetId);
