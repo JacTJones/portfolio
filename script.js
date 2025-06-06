@@ -31,23 +31,26 @@ document.addEventListener('DOMContentLoaded', () => {
 
     mobileNavLinks.forEach(link => {
         link.addEventListener('click', (e) => {
-            e.preventDefault();
-            const targetId = link.getAttribute('href').substring(1);
-            const targetPage = document.getElementById(targetId);
-            targetPage.scrollIntoView({ behavior: 'smooth' });
-            
-            burgerMenu.classList.remove('active');
-            mobileNav.classList.remove('active');
-            
-            // Restore arrows when menu is closed
-            const currentPage = Array.from(pages).find(page => {
-                const rect = page.getBoundingClientRect();
-                return rect.top >= 0 && rect.top <= window.innerHeight / 2;
-            });
-            if (currentPage) {
-                const currentIndex = Array.from(pages).indexOf(currentPage);
-                scrollUp.style.display = currentIndex > 0 ? 'flex' : 'none';
-                scrollDown.style.display = currentIndex < pages.length - 1 ? 'flex' : 'none';
+            // Only prevent default for internal navigation links
+            if (link.getAttribute('href').startsWith('#')) {
+                e.preventDefault();
+                const targetId = link.getAttribute('href').substring(1);
+                const targetPage = document.getElementById(targetId);
+                targetPage.scrollIntoView({ behavior: 'smooth' });
+                
+                burgerMenu.classList.remove('active');
+                mobileNav.classList.remove('active');
+                
+                // Restore arrows when menu is closed
+                const currentPage = Array.from(pages).find(page => {
+                    const rect = page.getBoundingClientRect();
+                    return rect.top >= 0 && rect.top <= window.innerHeight / 2;
+                });
+                if (currentPage) {
+                    const currentIndex = Array.from(pages).indexOf(currentPage);
+                    scrollUp.style.display = currentIndex > 0 ? 'flex' : 'none';
+                    scrollDown.style.display = currentIndex < pages.length - 1 ? 'flex' : 'none';
+                }
             }
         });
     });

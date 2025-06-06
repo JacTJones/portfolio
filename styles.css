@@ -211,12 +211,7 @@ p {
 }
 
 .navigation a:hover {
-    color: #e6f1ff;
-}
-
-.navigation a.active {
     color: #64ffda;
-    font-weight: 600;
 }
 
 .nav-button {
@@ -928,4 +923,9 @@ p {
     10% {
         transform: translateX(-50%) translateY(0);
     }
+}
+
+/* Remove unused classes */
+.nav-link {
+    display: none;
 }
